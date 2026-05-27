@@ -1,0 +1,8 @@
+# Log files (Generated data)
+# .log
+data/*.log
+
+# Database files (Generated data)
+# .sqlite
+# .db
+data/*.sqlite
