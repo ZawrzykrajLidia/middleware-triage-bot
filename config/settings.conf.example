@@ -1,0 +1,8 @@
+# Middleware Triage Bot - Configuration
+
+# File Paths
+LOG_FILE="../data/app.log"
+DB_FILE="../data/db.sqlite"
+
+# Discord Alerting
+WEBHOOK_URL="PASTE_YOUR_DISCORD_WEBHOOK_URL_HERE"
