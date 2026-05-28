@@ -27,14 +27,16 @@ cd middleware-triage-bot
 ```
 
 2. Configure the environment:
-Create your local configuration file from the provided template.
+
+    Create your local configuration file from the provided template.
 
 ```bash
 cp config/settings.conf.example config/settings.conf
 ```
 
 3. Generate mock data:
-Run the setup script to create a fresh SQLite database with random transactions and generate a sample log file containing simulated errors.
+
+    Run the setup script to create a fresh SQLite database with random transactions and generate a sample log file containing simulated errors.
 
 ```bash
 cd scripts
@@ -43,7 +45,8 @@ chmod +x setup_env.sh triage.sh
 ```
 
 4. Run the Triage Bot:
-Execute the main script to analyze the logs, query the DB, and send an alert.
+
+    Execute the main script to analyze the logs, query the DB, and send an alert.
 
 ```bash
 ./triage.sh
