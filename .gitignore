@@ -6,3 +6,6 @@ data/*.log
 # .sqlite
 # .db
 data/*.sqlite
+
+# Configuration file
+config/settings.conf
