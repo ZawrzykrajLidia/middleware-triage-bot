@@ -16,6 +16,23 @@ middleware-triage-bot/
 └── README.md
 ```
 
+## Prerequisites
+To run this project, ensure you have the following packages installed on your Linux system:
+* **`sqlite3`** (for database simulation)
+* **`curl`** (for sending Discord webhook requests)
+
+**Installation (Ubuntu / Debian):**
+```bash
+sudo apt update && sudo apt install sqlite3 curl
+```
+
+**Installation (Fedora / RHEL):**
+```bash
+sudo dnf install sqlite curl
+```
+
+
+
 ## Quick Start
 
 1. Clone the repository and navigate to the project directory:
