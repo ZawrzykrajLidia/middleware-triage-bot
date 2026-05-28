@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# File paths
-LOG_FILE="../data/app.log"
-DB_FILE="../data/db.sqlite"
+source ../config/settings.conf
 
 echo "Creating the mock environment..."
 

@@ -1,9 +1,8 @@
 #!/bin/bash
 
-LOG_FILE="../data/app.log"
-DB_FILE="../data/db.sqlite"
-WEBHOOK_URL=""
+source ../config/settings.conf
 
+echo "=== Middleware Triage Bot ==="
 echo "Analyzing logs for errors..."
 
 if grep -q "ERROR" "$LOG_FILE"; then
@@ -38,7 +37,7 @@ if grep -q "ERROR" "$LOG_FILE"; then
 
 				PAYLOAD=$(cat <<EOF
 {
-	"content": "## CRITICAL ERROR DETECTED!\n**Time of Error:** $ERROR_TIME\n**Transaction ID:** $TXN_ID\n**Customer ID:** $CUST_ID\n**Service:** $SERVICE\n**Status in DB:** $STATUS\n\n**Server Status:**\n Free RAM: ${RAM_FREE}MB\n CPU Load: ${CPU_LOAD}"
+	"content": "## CRITICAL ERROR DETECTED!\n**Time of Error:** $ERROR_TIME\n**Transaction ID:** $TXN_ID\n**Customer ID:** $CUST_ID\n**Service:** $SERVICE\n**Status in DB:** $STATUS\n\n**Server Status:**\nFree RAM: ${RAM_FREE}MB\nCPU Load: ${CPU_LOAD}"
 }
 EOF
 )
