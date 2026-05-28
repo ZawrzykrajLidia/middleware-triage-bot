@@ -38,14 +38,14 @@ echo "Generating sample application logs..." > $LOG_FILE
 
 LEVELS=("INFO" "DEBUG" "WARN")
 WORKERS=("Worker-1" "Worker-2" "Worker-3" "Worker-4")
-MESSAGES=("Processing standard payload..." "Service heartbeat OK." "Cleaning up temp files." "Message routed successfully." " Connection pool metric updated." "Validating XML Schema.")
+MESSAGES=("Processing standard payload..." "Service heartbeat OK." "Cleaning up temp files." "Message routed successfully." "Connection pool metric updated." "Validating XML Schema.")
 
 for i in {1..40}; do
 	TIMESTAMP="2026-05-20 10:$((15 + i / 60)):$(printf "%02d" $((i % 60)))"
 
 	# Inject the ERROR in the middle
 	if [ $i -eq 20 ]; then
-		echo "[$TIMESTAMP] ERROR [Worker-3] TimeoutException: Connection to core database timed out . TransactionID=TXN-88192" >> $LOG_FILE
+		echo "[$TIMESTAMP] ERROR [Worker-3] TimeoutException: Connection to core database timed out. TransactionID=TXN-88192" >> $LOG_FILE
 	else
 		LEVEL=${LEVELS[$RANDOM % 3]}
 		WORKER=${WORKERS[$RANDOM % 4]}
