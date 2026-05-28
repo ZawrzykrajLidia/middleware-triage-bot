@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # File paths
-
 LOG_FILE="../data/app.log"
 DB_FILE="../data/db.sqlite"
 
@@ -16,7 +15,7 @@ SERVICES=("Mobile-Activation" "Broadband-Billing" "Fiber-Upgrade" "IPTV-Setup")
 STATUSES=("SUCCESS" "PENDING" "FAILED" "TIMEOUT")
 
 echo "Generating random transaction..."
-echo "Begin transaction" > temp_insert.sql
+echo "BEGIN TRANSACTION;" > temp_insert.sql
 
 for i in {1..50}; do
 	TXN_ID="TXN-$((1000 + RANDOM % 90000))"
@@ -24,13 +23,15 @@ for i in {1..50}; do
 
 	SERVICE=${SERVICES[$RANDOM % 4]}
 	STATUS=${STATUSES[$RANDOM % 4]}
-
+	
 	echo "INSERT INTO transactions (transaction_id, customer_id, service_type, status) VALUES ('$TXN_ID', '$CUST_ID', '$SERVICE', '$STATUS');" >> temp_insert.sql
 done
 
 echo "INSERT INTO transactions (transaction_id, customer_id, service_type, status) VALUES ('TXN-88192', 'CUST-001', 'Mobile-Activation', 'Failed');" >> temp_insert.sql
 
 echo "COMMIT;" >> temp_insert.sql
+
+sqlite3 $DB_FILE < temp_insert.sql
 
 rm temp_insert.sql
 
